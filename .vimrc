@@ -23,15 +23,20 @@ set wildmenu
 """
 " Tags...
 "
-" ctags
+" ctags 
+" - ^]  -> Jump to definition
+" - g^] -> List all
+" - ^T  -> Go back
 command! MakeTags !ctags -R .
 
 
 
 """
-" Stop pressing this...
-"vnoremap <C-s> :w
-
+" Stop pressing this...but all these freeze my ssh session.
+" nnoremap <silent> <C-S> :<C-u>Update<CR>
+" noremap <C-S> :update<CR>
+" vnoremap <C-S> <C-C>:update<CR>
+" inoremap <C-S> <C-O>:update<CR>
 
 """
 set makeprg=python\ %
