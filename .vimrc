@@ -1,5 +1,5 @@
-" Notes: "+y / "+p to access clipboard..
-
+" http://askubuntu.com/questions/347519/unable-to-copy-from-vim-to-system-clipboard
+" >> "+y / "+p to access clipboard..
 " apt-get install ctags...and add this to ~/.ctags:
 " --python-kinds=-iv
 " --exclude=...
@@ -47,7 +47,7 @@ command! MakeTags !ctags -R .
 """
 " Autocomplete
 "
-" ^n/^p  ^x^f ^x^...
+" ^n/^p  ^x^f ^x^... and ^r to exit.
 
 
 """
