@@ -1,3 +1,5 @@
+" Notes: "+y / "+p to access clipboard..
+
 " apt-get install ctags...and add this to ~/.ctags:
 " --python-kinds=-iv
 " --exclude=...
