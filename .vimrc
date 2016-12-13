@@ -10,7 +10,15 @@ set nocompatible
 """
 " Fuzzy file search
 "
-"""
+" Lets you search in subdirectories using commands like :find
+set path+=**
+
+" Gives a cool little list/menu when using tab search (:find)
+set wildmenu
+" Can also use :ls to see open buffers and buffer command  :b [substring of name] to change
+" between files...with tab completion if the substring matches many items.
+
+""
 " File browsing
 "
 " Enable file plugin that comes with vim by default...for file browsing.
@@ -24,16 +32,6 @@ let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
-
-
-" Lets you search in subdirectories using commands like :find
-set path+=**
-
-" Gives a cool little list/menu when using tab search (:find)
-set wildmenu
-
-" Can also use :ls to see open buffers and buffer command  :b [substring of name] to change
-" between files...with tab completion if the substring matches many items.
 
 """
 " Tags...
