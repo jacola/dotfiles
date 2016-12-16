@@ -9,6 +9,8 @@ if has("gui_running")
 endif
 
 
+" http://askubuntu.com/questions/347519/unable-to-copy-from-vim-to-system-clipboard
+" >> "+y / "+p to access clipboard..
 " apt-get install ctags...and add this to ~/.ctags:
 " --python-kinds=-iv
 " --exclude=...
@@ -19,17 +21,28 @@ set nocompatible
 """
 " Fuzzy file search
 "
-" Enable file plugin that comes with vim by default...for file browsing.
-filetype plugin on
-
 " Lets you search in subdirectories using commands like :find
 set path+=**
 
 " Gives a cool little list/menu when using tab search (:find)
 set wildmenu
-
 " Can also use :ls to see open buffers and buffer command  :b [substring of name] to change
 " between files...with tab completion if the substring matches many items.
+
+""
+" File browsing
+"
+" Enable file plugin that comes with vim by default...for file browsing.
+" :edit [./folder name]
+" v to split, t to tab
+"  |netrw-brose-maps|
+filetype plugin on
+let g:netrw_banner=0        " disable annoying banner
+let g:netrw_browse_split=4  " open in prior window
+let g:netrw_altv=1          " open splits to the right
+let g:netrw_liststyle=3     " tree view
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 """
 " Tags...
@@ -40,7 +53,15 @@ set wildmenu
 " - ^T  -> Go back
 command! MakeTags !ctags -R .
 
+"""
+" Autocomplete
+"
+" ^n/^p  ^x^f ^x^... and ^r to exit.
 
+
+"""
+" Templates...example:
+" nnoremap ,html :-1read $HOME/.vim/snip/.skeleton.html<CR>3jwf>a
 
 """
 " Stop pressing this...but all these freeze my ssh session.
@@ -50,6 +71,7 @@ command! MakeTags !ctags -R .
 " inoremap <C-S> <C-O>:update<CR>
 
 """
+" Run current python file
 set makeprg=python\ %
 noremap <F10> :w<CR>:make<CR>
 " :let f=expand("%")|vnew|execute '.!ruby "' . f . '"'
@@ -82,20 +104,6 @@ hi def link whiteSpaceError Error
 autocmd Syntax * syn match whiteSpaceError "\(\S\| \)\@<=\t\+"
 autocmd Syntax * syn match whiteSpaceError "\s\+\%#\@<!$"
 
-
-" Add Package manager thing
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-
-" Packages...
-" Plugin 'VundleVim/Vundle.vim'
-" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-" Bundle 'tpope/vim-fugitive'
-"Bundle 'scrooloose/nerdtree'
-" Plugin 'Valloric/YouCompleteMe'
-
-"call vundle#end()
-
 """
 set cursorline
 set showmatch
@@ -105,19 +113,15 @@ set invnumber
 noremap <F3> :set invnumber<CR>
 inoremap <F3> <C-O>:set invnumber<CR>
 
-"slimux
-"I have this built into the script, which is not
-"what the original has
+"""
+" Slimux
+"
+" I have this built into the script, which is not
+" what the original has
 nnoremap <C-c><C-c> :SlimuxREPLSendLine<CR>
 vnoremap <C-c><C-c> :SlimuxREPLSendLine<CR>
 nnoremap <C-c><C-v> :SlimuxREPLConfigure<CR>
 "vnoremap <C-C><C-C> :<C-w>SlimuxShellRun %cpaste<CR>:'<,'>SlimuxREPLSendSelection<CR>:SlimuxShellRun --<CR>
-
-"paste formatted time
-nnoremap t "=strftime("%Y-%m-%d %H:%M:%S")<CR>P
-
-" Toggle Nerd Tree with F2
-map <F2> :NERDTreeToggle<CR>
 
 "alternate keys for indenting/unindenting
 inoremap <S-Tab> <C-O><LT><LT>
@@ -136,10 +140,3 @@ vnoremap <S-Tab> <LT>
 nnoremap <C-h> gT
 nnoremap <C-l> gt
 
-autocmd FileType python setlocal omnifunc=jedi#completions
-let g:jedi#show_call_signatures = 0
-"inoremap <C-c> <Esc>
-"let g:jedi#completions_enabled = 0
-"i"let g:jedi#auto_vim_configuration = 0
-"let g:neocomplete#force_omni_input_patterns.python =
-"\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'

@@ -8,3 +8,6 @@
 
 - https://github.com/dvbuntu/.files/blob/master/.vimrc / dvbuntu
 - https://raw.githubusercontent.com/dvbuntu/.files/master/.tmux.conf / dvbuntu
+
+To Check:
+- http://ivanbrennan.nyc/blog/2014/01/16/rigging-vims-netrw/
