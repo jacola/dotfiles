@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 if has("gui_running")
     if has("gui_gtk2")
         set guifont=Inconsolata\ 12
@@ -72,9 +74,17 @@ command! MakeTags !ctags -R .
 
 """
 " Run current python file
-set makeprg=python\ %
-noremap <F10> :w<CR>:make<CR>
-" :let f=expand("%")|vnew|execute '.!ruby "' . f . '"'
+"set makeprg=python\ %
+
+function! RunPython()
+    execute "w"
+    let f=expand("%")
+    execute "SlimuxShellRun python " . f . ""
+endfunction
+
+"noremap <o #{pane_id}"10> :w<CR>:make<CR>
+noremap <F10> :call RunPython()<CR>
+"             :let f=expand("%")|execute '.!ruby "' . f . '"'
 
 """
 " Look...
