@@ -74,17 +74,13 @@ command! MakeTags !ctags -R .
 
 """
 " Run current python file
-"set makeprg=python\ %
-
 function! RunPython()
     execute "w"
     let f=expand("%")
     execute "SlimuxShellRun python " . f . ""
 endfunction
 
-"noremap <o #{pane_id}"10> :w<CR>:make<CR>
 noremap <F10> :call RunPython()<CR>
-"             :let f=expand("%")|execute '.!ruby "' . f . '"'
 
 """
 " Look...
