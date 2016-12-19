@@ -8,7 +8,15 @@ if has("gui_running")
     elseif has("gui_macvim")
         set guifont=Menlo\ Regular:h14
     elseif has("gui_win32")
+        " Fix font on windows...
         set guifont=Consolas:h10:cANSI
+        " Stop IME from kicking in every insert...
+        set iminsert=0
+        " Stop everything from showing up as ????
+        set langmenu=en_US
+        let $LANG = 'en_US'
+        source $VIMRUNTIME/delmenu.vim
+        source $VIMRUNTIME/menu.vim
     endif
 endif
 
