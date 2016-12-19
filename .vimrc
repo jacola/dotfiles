@@ -79,10 +79,11 @@ command! MakeTags !ctags -R .
 function! RunPython()
     execute "w"
     let f=expand("%")
-    if has("gui_win32")
-       execute "!python " . f . ""
+    if exists(':SlimuxShellRun')
+        "has("gui_win32")
+        execute "SlimuxShellRun python " . f . ""
     else
-       execute "SlimuxShellRun python " . f . ""
+        execute "!python " . f . ""
     endif
 endfunction
 
