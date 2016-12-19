@@ -88,6 +88,7 @@ function! RunPython()
 endfunction
 
 noremap <F10> :call RunPython()<CR>
+noremap <F9> :%s/\s\+$//e<CR>
 
 """
 " Look...
