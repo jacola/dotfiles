@@ -1,4 +1,6 @@
-execute pathogen#infect()
+if has("unix")
+    execute pathogen#infect()
+endif
 
 if has("gui_running")
     if has("gui_gtk2")
@@ -77,7 +79,11 @@ command! MakeTags !ctags -R .
 function! RunPython()
     execute "w"
     let f=expand("%")
-    execute "SlimuxShellRun python " . f . ""
+    if has("gui_win32")
+       execute "!python " . f . ""
+    else
+       execute "SlimuxShellRun python " . f . ""
+    endif
 endfunction
 
 noremap <F10> :call RunPython()<CR>
