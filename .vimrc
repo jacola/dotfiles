@@ -2,6 +2,8 @@ if has("unix")
     execute pathogen#infect()
 endif
 
+colorscheme monokai
+
 if has("gui_running")
     if has("gui_gtk2")
         set guifont=Inconsolata\ 12
@@ -18,9 +20,10 @@ if has("gui_running")
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
     endif
+elseif has("win32")
+    " when run from cmd/powershell
+    colorscheme slate
 endif
-
-
 " http://askubuntu.com/questions/347519/unable-to-copy-from-vim-to-system-clipboard
 " >> "+y / "+p to access clipboard..
 " apt-get install ctags...and add this to ~/.ctags:
@@ -101,7 +104,6 @@ noremap <F9> :%s/\s\+$//e<CR>
 """
 " Look...
 syntax enable
-colorscheme monokai
 
 set tw=9999  " prevent wrapping
 set listchars+=precedes:<,extends:> "when nowrap is set-has carroots when a line extends beyond the edge
