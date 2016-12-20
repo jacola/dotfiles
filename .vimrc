@@ -1,4 +1,11 @@
 """
+" - https://github.com/tpope/vim-pathogen
+"
+" - https://github.com/tpope/vim-commentary
+" - https://github.com/tpope/vim-surround
+
+
+"""
 " If we have pathogen, let's start it!
 if filereadable(expand("~/.vim/autoload/pathogen.vim"))
     runtime! autoload/pathogen.vim
@@ -9,27 +16,6 @@ endif
 
 colorscheme monokai
 
-if has("gui_running")
-    if has("gui_gtk2")
-        set guifont=Inconsolata\ 12
-    elseif has("gui_macvim")
-        set guifont=Menlo\ Regular:h14
-    elseif has("gui_win32")
-        " Fix font on windows...
-        set guifont=Consolas:h10:cANSI
-        " Stop IME from kicking in every insert...
-        set iminsert=0
-        " Stop everything from showing up as ????
-        set langmenu=en_US
-        let $LANG = 'en_US'
-        source $VIMRUNTIME/delmenu.vim
-        source $VIMRUNTIME/menu.vim
-    endif
-elseif has("win32")
-    " when run from cmd/powershell
-    "colorscheme slate
-    colorscheme murphy
-endif
 " http://askubuntu.com/questions/347519/unable-to-copy-from-vim-to-system-clipboard
 " >> "+y / "+p to access clipboard..
 " apt-get install ctags...and add this to ~/.ctags:
@@ -197,4 +183,13 @@ vnoremap <S-Tab> <LT>
 "change tabs directionaly with ^h and ^l
 nnoremap <C-h> gT
 nnoremap <C-l> gt
+
+
+if has("win32")
+    source .vimrc.win32
+else
+    " if filereadable($HOME . "/.vimrc.local")
+    "     source ~/.vimrc.local
+    " end if
+endif
 
