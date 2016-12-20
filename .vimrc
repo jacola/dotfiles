@@ -22,7 +22,8 @@ if has("gui_running")
     endif
 elseif has("win32")
     " when run from cmd/powershell
-    colorscheme slate
+    "colorscheme slate
+    colorscheme murphy
 endif
 " http://askubuntu.com/questions/347519/unable-to-copy-from-vim-to-system-clipboard
 " >> "+y / "+p to access clipboard..
@@ -129,8 +130,13 @@ autocmd Syntax * syn match whiteSpaceError "\(\S\| \)\@<=\t\+"
 autocmd Syntax * syn match whiteSpaceError "\s\+\%#\@<!$"
 
 """
-set cursorline
-set showmatch
+if has("win32")
+
+else
+    " Only enable when we have monokai...
+    set cursorline
+    set showmatch
+endif
 set invnumber
 
 "set number
