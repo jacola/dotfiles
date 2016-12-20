@@ -31,6 +31,12 @@ endif
 " --python-kinds=-iv
 " --exclude=...
 
+" Man up.
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 " We're young and don't need things behave like they did back in VI! 
 set nocompatible
 
@@ -137,11 +143,25 @@ else
     set cursorline
     set showmatch
 endif
-set invnumber
 
-"set number
-noremap <F3> :set invnumber<CR>
-inoremap <F3> <C-O>:set invnumber<CR>
+
+"""
+" Line number madness.
+set number
+set relativenumber
+
+augroup linenumbers
+  autocmd!
+  autocmd BufEnter *    :set relativenumber
+  autocmd BufLeave *    :set number norelativenumber
+  autocmd WinEnter *    :set relativenumber
+  autocmd WinLeave *    :set number norelativenumber
+  autocmd InsertEnter * :set number norelativenumber
+  autocmd InsertLeave * :set relativenumber
+  autocmd FocusLost *   :set number norelativenumber
+  autocmd FocusGained * :set relativenumber
+augroup END
+
 
 """
 " Slimux
