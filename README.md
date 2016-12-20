@@ -1,5 +1,11 @@
 # dotfiles
 
+## Configuration Notes
+On windows, I use:
+- vim
+- ConEmu: https://conemu.github.io/
+- Clink: http://mridgers.github.io/clink/
+
 ## Resources & Inspiration
 - https://www.youtube.com/watch?v=XA2WjJbmmoM / How to Do 90% of What Plugins Do (With Just Vim)
 - https://github.com/mcantor/no_plugins/blob/master/no_plugins.vim
