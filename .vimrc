@@ -36,6 +36,8 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+noremap <PageUp> <NOP>
+noremap <PageDown> <NOP>
 
 " We're young and don't need things behave like they did back in VI! 
 set nocompatible
@@ -147,6 +149,7 @@ endif
 
 """
 " Line number madness.
+set numberwidth=5
 set number
 set relativenumber
 
