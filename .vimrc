@@ -1,5 +1,10 @@
-if has("unix")
-    execute pathogen#infect()
+"""
+" If we have pathogen, let's start it!
+if filereadable(expand("~/.vim/autoload/pathogen.vim"))
+    runtime! autoload/pathogen.vim
+    if exists("g:loaded_pathogen")
+       execute pathogen#infect()
+    endif
 endif
 
 colorscheme monokai
