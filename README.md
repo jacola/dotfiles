@@ -1,5 +1,8 @@
 # dotfiles
 
+## Notes
+apt install awscli
+
 ## Configuration Notes
 On windows, I use:
 - vim
