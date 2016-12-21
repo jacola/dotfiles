@@ -186,7 +186,7 @@ nnoremap <C-l> gt
 
 
 if has("win32")
-    source .vimrc.win32
+    source ~\.vimrc.win32
 else
     " if filereadable($HOME . "/.vimrc.local")
     "     source ~/.vimrc.local
