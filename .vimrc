@@ -14,6 +14,10 @@ if filereadable(expand("~/.vim/autoload/pathogen.vim"))
     endif
 endif
 
+"""
+" Markdown stuff
+let g:vim_markdown_folding_disabled = 1
+
 colorscheme monokai
 
 " http://askubuntu.com/questions/347519/unable-to-copy-from-vim-to-system-clipboard
