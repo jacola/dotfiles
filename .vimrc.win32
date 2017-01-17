@@ -12,3 +12,13 @@ else
     colorscheme murphy
 endif
 
+au BufRead,BufNewFile *.cls setfiletype vb
+au BufRead,BufNewFile *.bas setfiletype vb
+au BufRead,BufNewFile *.frm setfiletype vb
+au BufRead,BufNewFile *.catscript setfiletype vb
+
+noremap <F5> : execute "silent !..\\build.catscript"<CR>
+
+set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileformats=unix,dos,mac
