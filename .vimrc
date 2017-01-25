@@ -188,6 +188,9 @@ vnoremap <S-Tab> <LT>
 nnoremap <C-h> gT
 nnoremap <C-l> gt
 
+" For fixing JSON
+com! PrettyJSON %!python -m json.tool
+
 
 if has("win32")
     source ~\.vimrc.win32
