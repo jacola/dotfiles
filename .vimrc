@@ -198,6 +198,8 @@ vnoremap <S-Tab> <LT>
 nnoremap <C-h> gT
 nnoremap <C-l> gt
 
+au BufRead,BufNewFile *.md set ft=markdown
+
 " For fixing JSON
 com! PrettyJSON %!python -m json.tool
 
