@@ -123,10 +123,20 @@ set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize,resi
 set expandtab "no tab characters, spaces instead except with makefiles
 autocmd BufReadPost,FileReadPost,BufNewFile [Mm]ake{file,} setlocal noexpandtab
 
+"""
+" Tabs
+
+" First let's use 4 spaces
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set smarttab
+
+" But for HTML, js, css, handlebars, etc., use 2 spaces.
+au BufRead,BufNewFile *.hbs set ft=html
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype js setlocal ts=2 sts=2 sw=2
+autocmd Filetype css setlocal ts=2 sts=2 sw=2
 
 hi def link whiteSpaceError Error
 autocmd Syntax * syn match whiteSpaceError "\(\S\| \)\@<=\t\+"

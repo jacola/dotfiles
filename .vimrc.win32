@@ -16,6 +16,7 @@ au BufRead,BufNewFile *.cls setfiletype vb
 au BufRead,BufNewFile *.bas setfiletype vb
 au BufRead,BufNewFile *.frm setfiletype vb
 au BufRead,BufNewFile *.catscript setfiletype vb
+au BufRead,BufNewFile *.catvbs setfiletype vb
 
 noremap <F5> : execute "silent !..\\build.catscript"<CR>
 
