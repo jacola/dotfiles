@@ -1,11 +1,4 @@
 """
-" - https://github.com/tpope/vim-pathogen
-"
-" - https://github.com/tpope/vim-commentary
-" - https://github.com/tpope/vim-surround
-
-
-"""
 " If we have pathogen, let's start it!
 if filereadable(expand("~/.vim/autoload/pathogen.vim"))
     runtime! autoload/pathogen.vim
