@@ -135,6 +135,8 @@ hi def link whiteSpaceError Error
 autocmd Syntax * syn match whiteSpaceError "\(\S\| \)\@<=\t\+"
 autocmd Syntax * syn match whiteSpaceError "\s\+\%#\@<!$"
 
+autocmd Filetype python setlocal commentstring=#\ %s
+
 """
 if has("win32")
 
