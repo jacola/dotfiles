@@ -1,4 +1,10 @@
 """
+" - https://github.com/tpope/vim-pathogen
+"
+" - https://github.com/tpope/vim-commentary
+" - https://github.com/tpope/vim-surround
+
+"""
 " If we have pathogen, let's start it!
 if filereadable(expand("~/.vim/autoload/pathogen.vim"))
     runtime! autoload/pathogen.vim
@@ -48,13 +54,13 @@ set wildmenu
 " :edit [./folder name]
 " v to split, t to tab
 "  |netrw-brose-maps|
-" filetype plugin on
-" let g:netrw_banner=0        " disable annoying banner
-" let g:netrw_browse_split=4  " open in prior window
-" let g:netrw_altv=1          " open splits to the right
-" let g:netrw_liststyle=3     " tree view
-" let g:netrw_list_hide=netrw_gitignore#Hide()
-" let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+filetype plugin on
+let g:netrw_banner=0        " disable annoying banner
+let g:netrw_browse_split=4  " open in prior window
+let g:netrw_altv=1          " open splits to the right
+let g:netrw_liststyle=3     " tree view
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 """
 " Tags...
@@ -95,8 +101,28 @@ function! RunPython()
     endif
 endfunction
 
-noremap <F10> :call RunPython()<CR>
+function! BuildHistGraph()
+    if expand('%:p')=~'HistoryGraph\\src'
+        execute "silent !\"D:\/devel\/HistoryGraph\/make.bat\""
+    endif
+endfunction
+
+autocmd BufWritePost *.js call BuildHistGraph()
+
+noremap <F10> :call RunPython()<CR><CR>
 noremap <F9> :%s/\s\+$//e<CR>
+" noremap <F4> :silent !"D:\/devel\/HistoryGraph\/make.bat"<CR>
+noremap <F4> :call BuildHistGraph()<CR>
+let g:indent_guides_enable_on_vim_startup = 1
+noremap <F8> :IndentGuidesToggle<CR>
+nnoremap <F3> :set hlsearch!<CR>
+
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+"map <c-f> :call JsBeautify()<cr>
+nnoremap <c-f> :%!js-beautify -j -q -B -f -<CR>
+"autocmd FileType javascript setlocal equalprg=js-beautify\ --stdin
 
 """
 " Look...
@@ -127,15 +153,13 @@ set smarttab
 
 " But for HTML, js, css, handlebars, etc., use 2 spaces.
 au BufRead,BufNewFile *.hbs set ft=html
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype js setlocal ts=2 sts=2 sw=2
-autocmd Filetype css setlocal ts=2 sts=2 sw=2
+"autocmd Filetype html setlocal ts=2 sts=2 sw=2
+"autocmd Filetype js setlocal ts=2 sts=2 sw=2
+"autocmd Filetype css setlocal ts=2 sts=2 sw=2
 
 hi def link whiteSpaceError Error
 autocmd Syntax * syn match whiteSpaceError "\(\S\| \)\@<=\t\+"
 autocmd Syntax * syn match whiteSpaceError "\s\+\%#\@<!$"
-
-autocmd Filetype python setlocal commentstring=#\ %s
 
 """
 if has("win32")
@@ -164,7 +188,6 @@ augroup linenumbers
   autocmd FocusLost *   :set number norelativenumber
   autocmd FocusGained * :set relativenumber
 augroup END
-
 
 """
 " Slimux
@@ -197,6 +220,10 @@ au BufRead,BufNewFile *.md set ft=markdown
 
 " For fixing JSON
 com! PrettyJSON %!python -m json.tool
+
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_enter = 0
+
 
 
 if has("win32")
