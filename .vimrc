@@ -229,8 +229,8 @@ com! PrettyJSON %!python -m json.tool
 if has("win32")
     source ~\.vimrc.win32
 else
-    " if filereadable($HOME . "/.vimrc.local")
-    "     source ~/.vimrc.local
-    " end if
+    if filereadable($HOME . "/.vimrc.local")
+        source ~/.vimrc.local
+    endif
 endif
 
