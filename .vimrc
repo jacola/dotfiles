@@ -153,6 +153,7 @@ set smarttab
 
 " But for HTML, js, css, handlebars, etc., use 2 spaces.
 au BufRead,BufNewFile *.hbs set ft=html
+au BufRead,BufNewFile *.vue set ft=html 
 "autocmd Filetype html setlocal ts=2 sts=2 sw=2
 "autocmd Filetype js setlocal ts=2 sts=2 sw=2
 "autocmd Filetype css setlocal ts=2 sts=2 sw=2
