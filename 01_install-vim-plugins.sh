@@ -13,3 +13,5 @@ git clone git://github.com/tell-k/vim-autopep8.git
 
 cd ~/.vim/colors
 wget https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim
+
+git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
