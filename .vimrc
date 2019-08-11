@@ -59,8 +59,8 @@ let g:netrw_banner=0        " disable annoying banner
 let g:netrw_browse_split=4  " open in prior window
 let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
-let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+#let g:netrw_list_hide=netrw_gitignore#Hide()
+#let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 """
 " Tags...
@@ -154,9 +154,9 @@ set smarttab
 " But for HTML, js, css, handlebars, etc., use 2 spaces.
 au BufRead,BufNewFile *.hbs set ft=html
 au BufRead,BufNewFile *.vue set ft=html 
-"autocmd Filetype html setlocal ts=2 sts=2 sw=2
-"autocmd Filetype js setlocal ts=2 sts=2 sw=2
-"autocmd Filetype css setlocal ts=2 sts=2 sw=2
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype js setlocal ts=2 sts=2 sw=2
+autocmd Filetype css setlocal ts=2 sts=2 sw=2
 
 hi def link whiteSpaceError Error
 autocmd Syntax * syn match whiteSpaceError "\(\S\| \)\@<=\t\+"
@@ -242,3 +242,7 @@ endif
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+"""
+" On a touch screen, sometimes I want to move with my finger...
+set mouse=a
