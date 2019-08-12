@@ -1,5 +1,7 @@
 # dotfiles
 
+I mainly use these files to remotely access servers from my iPad using Blink (Mosh), and many settings reflect this way of working.
+
 ## Configuration Notes
 On windows, I use:
 - vim
