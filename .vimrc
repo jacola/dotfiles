@@ -88,31 +88,12 @@ command! MakeTags !ctags -R .
 " vnoremap <C-S> <C-C>:update<CR>
 " inoremap <C-S> <C-O>:update<CR>
 
-"""
-" Run current python file
-function! RunPython()
-    execute "w"
-    let f=expand("%")
-    if exists(':SlimuxShellRun')
-        "has("gui_win32")
-        execute "SlimuxShellRun python " . f . ""
-    else
-        execute "!python " . f . ""
-    endif
-endfunction
-
-function! BuildHistGraph()
-    if expand('%:p')=~'HistoryGraph\\src'
-        execute "silent !\"D:\/devel\/HistoryGraph\/make.bat\""
-    endif
-endfunction
-
 autocmd BufWritePost *.js call BuildHistGraph()
 
-noremap <F10> :call RunPython()<CR><CR>
 noremap <F9> :%s/\s\+$//e<CR>
-" noremap <F4> :silent !"D:\/devel\/HistoryGraph\/make.bat"<CR>
-noremap <F4> :call BuildHistGraph()<CR>
+" Remove white space. Can't map to f9 without function keys <3 apple.
+com! NoSpace %s/\s\+$//e
+
 let g:indent_guides_enable_on_vim_startup = 1
 noremap <F8> :IndentGuidesToggle<CR>
 nnoremap <F3> :set hlsearch!<CR>
