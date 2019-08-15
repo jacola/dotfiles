@@ -88,8 +88,6 @@ command! MakeTags !ctags -R .
 " vnoremap <C-S> <C-C>:update<CR>
 " inoremap <C-S> <C-O>:update<CR>
 
-autocmd BufWritePost *.js call BuildHistGraph()
-
 noremap <F9> :%s/\s\+$//e<CR>
 " Remove white space. Can't map to f9 without function keys <3 apple.
 com! NoSpace %s/\s\+$//e
