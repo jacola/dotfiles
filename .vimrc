@@ -124,18 +124,18 @@ autocmd BufReadPost,FileReadPost,BufNewFile [Mm]ake{file,} setlocal noexpandtab
 """
 " Tabs
 
-" First let's use 4 spaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+" Let's use 2 spaces
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set smarttab
 
 " But for HTML, js, css, handlebars, etc., use 2 spaces.
 au BufRead,BufNewFile *.hbs set ft=html
 au BufRead,BufNewFile *.vue set ft=html 
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype js setlocal ts=2 sts=2 sw=2
-autocmd Filetype css setlocal ts=2 sts=2 sw=2
+" autocmd Filetype html setlocal ts=2 sts=2 sw=2
+" autocmd Filetype js setlocal ts=2 sts=2 sw=2
+" autocmd Filetype css setlocal ts=2 sts=2 sw=2
 
 hi def link whiteSpaceError Error
 autocmd Syntax * syn match whiteSpaceError "\(\S\| \)\@<=\t\+"
