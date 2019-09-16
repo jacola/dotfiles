@@ -96,9 +96,9 @@ let g:indent_guides_enable_on_vim_startup = 1
 noremap <F8> :IndentGuidesToggle<CR>
 nnoremap <F3> :set hlsearch!<CR>
 
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-let g:javascript_plugin_flow = 1
+"let g:javascript_plugin_jsdoc = 1
+"let g:javascript_plugin_ngdoc = 1
+"let g:javascript_plugin_flow = 1
 "map <c-f> :call JsBeautify()<cr>
 nnoremap <c-f> :%!js-beautify -j -q -B -f -<CR>
 "autocmd FileType javascript setlocal equalprg=js-beautify\ --stdin
