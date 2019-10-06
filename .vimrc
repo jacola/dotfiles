@@ -100,7 +100,7 @@ nnoremap <F3> :set hlsearch!<CR>
 "let g:javascript_plugin_ngdoc = 1
 "let g:javascript_plugin_flow = 1
 "map <c-f> :call JsBeautify()<cr>
-nnoremap <c-f> :%!js-beautify -j -q -B -f -<CR>
+"nnoremap <c-f> :%!js-beautify -j -q -B -f -<CR>
 "autocmd FileType javascript setlocal equalprg=js-beautify\ --stdin
 
 """
