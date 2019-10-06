@@ -204,6 +204,8 @@ com! PrettyJSON %!python -m json.tool
 " let g:ale_lint_on_text_changed = 'never'
 " let g:ale_lint_on_enter = 0
 
+" I resisted...but...for large apps...
+map <C-n> :NERDTreeToggle<CR>
 
 
 if has("win32")
