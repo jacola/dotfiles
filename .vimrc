@@ -206,6 +206,7 @@ com! PrettyJSON %!python -m json.tool
 
 " I resisted...but...for large apps...
 map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeQuitOnOpen = 1
 
 
 if has("win32")
